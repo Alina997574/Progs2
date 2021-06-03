@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	
+	string str;
+	string s;
+	string num = "";
+	
+	while (str.length() < 2) {
+		cout << "Введите строку:\n";
+		getline(cin,str);
+	}
+
+	cout << "Введите символ:\n";
+	cin >> s;
+
+	while (s.length() > 1) {
+		cout << "Введите символ:\n";
+		cin >> s;
+	}
+	
+	int kol = str.length();
+	
+	for (int i = 0; i < kol; i++) {
+		if (str[i] == s[0])
+		{
+			num += to_string(i + 1);
+			num += ", ";
+		}
+	}
+	
+	if (num == "") {
+		cout << "Данного символа нет в строке!\n";
+		return 0;
+	}
+
+	cout << "Номера, которые символ занимает в строке:\n";
+	cout << num;
+	
+	return 0;
+}
